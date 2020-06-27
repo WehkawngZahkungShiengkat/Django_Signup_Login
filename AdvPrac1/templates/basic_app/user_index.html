@@ -1,0 +1,9 @@
+{%extends "basic_app/base.html"%}
+{%load static%}
+{%block body_block%}
+  <div class="jumbotron">
+    <p>You have successfully login as {{ u_name }}</p>
+    <br><br>
+    <h1 style="text-align:center">Welcome back {{ u_name }}</h1>
+  </div>
+{%endblock%}

@@ -12,9 +12,10 @@ from django.contrib.auth import authenticate,login,logout
 def index(request):
     return render(request,'basic_app/index.html')
 
-@login_required
-def loginSuccess(request):
-    return HttpResponse("You have login Successfully!")
+#@login_required
+def UserIndex(request):
+    UserDict = {'u_name':request.user.username}
+    return render(request,'basic_app/user_index.html',context=UserDict)
 
 @login_required
 def user_logout(request):
@@ -67,7 +68,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request,user)
-                return HttpResponseRedirect(reverse('index'))
+                return HttpResponseRedirect('user_index')
 
             else:
                 return HttpResponse("ACCOUNT NOT ACTIVE")
