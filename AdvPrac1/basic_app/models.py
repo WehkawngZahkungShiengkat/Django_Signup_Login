@@ -18,3 +18,6 @@ class UserProfileInfo(models.Model):
 
     def __str__(self):
         return self.user.username
+
+    def picreturn(self):
+        return self.profile_pic

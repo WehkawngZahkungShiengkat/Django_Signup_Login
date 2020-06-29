@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from basic_app.forms import Userform,UserProfileform
+#from basic_app.models import UserProfileInfo
 
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
@@ -23,7 +24,7 @@ def user_logout(request):
     return HttpResponseRedirect(reverse('index'))
 
 def register(request):
-
+    logout(request)
     registered = False
 
     if request.method == 'POST':
